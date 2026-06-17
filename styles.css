@@ -22,29 +22,22 @@
   --font-body: 'Marcellus', 'Playfair Display', sans-serif;
 }
 
-/* ==========================================
-   RESET & BASE STYLES
-   ========================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-}
-
-body {
-  font-family: var(--font-body);
+html, body {
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden; /* NO SCROLL OPTION */
   background-color: var(--cream);
+  font-family: var(--font-body);
   color: var(--charcoal);
-  overflow-x: hidden;
-  line-height: 1.6;
 }
 
-/* Full-page Paper Grain Overlay */
+/* Paper Grain Texture Overlay */
 .paper-overlay {
   position: fixed;
   top: 0;
@@ -55,7 +48,7 @@ body {
   background-repeat: repeat;
   background-size: 250px 250px;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 999;
   opacity: 0.08;
   mix-blend-mode: multiply;
 }
@@ -63,27 +56,14 @@ body {
 /* ==========================================
    LAYOUTS & SECTIONS
    ========================================== */
-.section-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 5rem 1.5rem;
-  position: relative;
-  z-index: 2;
-}
-
-/* ==========================================
-   1. WELCOME & COUPLE SECTION (Screen 1)
-   ========================================== */
-.welcome-section {
+.viewport-container {
   position: relative;
   width: 100%;
   height: 100dvh;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem;
+  padding: 1rem;
   overflow: hidden;
 }
 
@@ -109,33 +89,41 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(26, 5, 8, 0.45);
+  background: rgba(26, 5, 8, 0.5);
 }
 
-/*.welcome-card styling with increased scale */
-.welcome-card {
+/* Invitation Card - view-locked flex column */
+.invitation-card {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 600px;
-  background-color: rgba(253, 251, 240, 0.94);
+  max-width: 440px;
+  height: 94dvh; /* Max height locked to screen */
+  max-height: 800px;
+  background-color: rgba(253, 251, 240, 0.95);
   backdrop-filter: blur(8px);
-  padding: 2.2rem 1.5rem;
+  padding: 0.75rem;
   border-radius: 4px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
   animation: cardFadeIn 1.4s ease-out;
 }
 
 .card-inner-border {
   border: 2px solid var(--gold-dark);
-  padding: 2.2rem 1.5rem;
+  padding: 1.25rem 1rem; /* Increased padding for breathing room */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
   position: relative;
 }
 
+/* Traditional Gold Corner Decors */
 .corner-decor {
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   border-color: var(--burnt-orange);
   border-style: solid;
   border-width: 0;
@@ -169,585 +157,239 @@ body {
   border-right-width: 4px;
 }
 
-.welcome-card-content {
-  text-align: center;
+/* Header Section */
+.card-header {
+  margin-top: 0.25rem;
 }
 
 .hero-pre-title {
   font-family: var(--font-telugu);
   color: var(--burnt-orange);
-  font-size: 1.15rem;
-  margin-bottom: 0.25rem;
-  letter-spacing: 2px;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.15rem;
 }
 
 .hero-title {
   font-family: var(--font-title);
   color: var(--gold-dark);
-  font-size: 2.3rem;
+  font-size: 1.95rem; /* Scaled up */
   line-height: 1.25;
-  margin-bottom: 0.4rem;
+  margin: 0.2rem 0;
   font-weight: 700;
   text-shadow: 1px 1px 0px rgba(255,255,255,0.8);
-}
-
-.divider-gold {
-  margin: 0.25rem 0 0.5rem;
-  display: flex;
-  justify-content: center;
 }
 
 .hero-subtitle {
   font-family: var(--font-serif);
   color: var(--burnt-orange);
-  font-size: 1.05rem;
+  font-size: 0.88rem; /* Scaled up */
   font-style: italic;
-  margin-bottom: 1.5rem;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
-/* Compact side-by-side couple grid */
-.couple-grid-compact {
+.divider-gold {
+  margin: 0.4rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Couple grid section */
+.couple-section {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 0.75rem;
-  margin: 1.5rem 0;
-  position: relative;
-  z-index: 3;
+  gap: 0.6rem;
+  margin: 0.6rem 0;
 }
 
-.couple-col-compact {
+.couple-col {
   text-align: center;
 }
 
-.couple-name-compact {
+.couple-name {
   font-family: var(--font-title);
   color: var(--maroon-light);
-  font-size: 1.55rem;
+  font-size: 1.4rem; /* Scaled up Bride/Groom names */
   font-weight: 700;
-  margin-bottom: 0.25rem;
-  letter-spacing: 0.5px;
+  margin-bottom: 0.2rem;
 }
 
-.couple-relation-compact {
+.couple-relation {
   font-family: var(--font-serif);
   color: var(--burnt-orange-dark);
-  font-size: 0.85rem;
+  font-size: 0.78rem; /* Scaled up parent relations */
   line-height: 1.4;
 }
 
-.rings-compact-connector {
-  width: 90px;
+.rings-connector {
+  width: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.rings-compact-connector svg {
-  animation: swayRings 8s ease-in-out infinite alternate;
-  transform-origin: center;
-}
-
-.hero-date-compact {
-  font-family: var(--font-title);
-  font-size: 1.3rem;
-  color: var(--maroon);
-  letter-spacing: 2px;
-  border-top: 1px solid var(--gold);
-  border-bottom: 1px solid var(--gold);
-  display: inline-block;
-  padding: 0.35rem 1.75rem;
-  margin-top: 1rem;
-}
-
-/* Scroll Down Indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 25px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  opacity: 0.9;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  animation: fadeInIndicator 2s ease-out;
-}
-
-.scroll-indicator:hover {
-  opacity: 1;
-}
-
-.scroll-text {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  color: var(--maroon);
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  background-color: rgba(253, 251, 240, 0.92);
-  padding: 4px 12px;
-  border-radius: 20px;
-  border: 1px solid var(--gold);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
-
-.scroll-icon-circle {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--maroon);
-  border: 2px solid var(--gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  animation: scrollBounce 2s infinite ease-in-out;
-}
-
-.scroll-indicator:hover .scroll-icon-circle {
-  background-color: var(--maroon-light);
-  transform: scale(1.05);
-}
-
-.scroll-arrow {
-  display: block;
-}
-
-@keyframes scrollBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(6px);
-  }
-}
-
-@keyframes fadeInIndicator {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.9;
-  }
-}
-
-/* ==========================================
-   2. EVENT DETAILS SECTION (Screen 2)
-   ========================================== */
+/* Ceremony info */
 .details-section {
-  background-color: var(--maroon);
-  background-image: radial-gradient(rgba(122, 28, 40, 0.45) 1px, transparent 1px);
-  background-size: 24px 24px;
-  color: var(--cream);
-  position: relative;
-  overflow: hidden;
-  height: 100dvh;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.details-section .section-container {
-  padding: 2.2rem 1.25rem 0.5rem;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-}
-
-.temple-border-top,
-.temple-border-bottom {
-  width: 100%;
-  line-height: 0;
-  position: absolute;
-  left: 0;
-  z-index: 5;
-}
-
-.temple-border-top {
-  top: 0;
-}
-
-.temple-border-bottom {
-  bottom: 0;
-  transform: scaleY(-1);
-}
-
-.details-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  max-width: 1000px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-}
-
-/* Details Card - Compact for phone height */
-.details-card {
-  flex: 1;
-  background-color: rgba(56, 11, 16, 0.85);
-  border: 1px solid var(--gold);
+  background-color: rgba(88, 17, 26, 0.04);
+  border: 1px solid rgba(212, 175, 55, 0.3);
   border-radius: 4px;
-  padding: 1.5rem 1.25rem;
-  text-align: center;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
-  position: relative;
+  padding: 0.65rem 0.5rem;
+  margin: 0.5rem 0;
 }
 
-.details-title {
+.details-date {
   font-family: var(--font-title);
-  color: var(--gold);
-  font-size: 1.7rem;
-  margin-bottom: 1.25rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 1.15rem; /* Scaled up Date */
+  color: var(--maroon);
+  letter-spacing: 1px;
+  border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
+  padding-bottom: 0.45rem;
+  margin-bottom: 0.45rem;
+  font-weight: 700;
 }
 
-.details-info-row {
+.details-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  margin-bottom: 1.25rem;
-  border-bottom: 1px dashed rgba(212, 175, 55, 0.25);
-  padding-bottom: 1.25rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem;
 }
 
 .details-item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25rem 0.5rem;
 }
 
-.details-item:not(:last-child) {
+.details-item:first-child {
   border-right: 1px solid rgba(212, 175, 55, 0.25);
 }
 
 .details-item .label {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: var(--gold-light);
-  letter-spacing: 2px;
-  margin-bottom: 0.3rem;
-  opacity: 0.9;
+  font-size: 0.72rem;
+  color: var(--burnt-orange-dark);
+  letter-spacing: 1px;
+  margin-bottom: 0.15rem;
 }
 
 .details-item .value {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
-  color: var(--cream);
-  font-weight: 600;
-}
-
-.details-item.venue-item .value {
-  font-size: 1.35rem;
-  color: var(--gold-light);
+  font-size: 1.15rem; /* Scaled up Muhurtham/Lunch values */
+  color: var(--maroon);
   font-weight: 700;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.telugu-blessing {
-  font-family: var(--font-telugu);
-  color: var(--gold);
-  font-size: 1.1rem;
-  margin-top: 1rem;
-  opacity: 0.85;
-}
-
-/* Diya elements left and right - slightly smaller */
-.details-diya {
-  width: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Interactive diya scale on hover */
-.interactive-diya {
-  transition: transform 0.4s ease;
-  cursor: pointer;
-}
-
-.interactive-diya:hover {
-  transform: scale(1.08);
-}
-
-/* Venue address styling */
-.venue-link {
-  color: var(--gold-light);
-  text-decoration: none;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
-  border-bottom: 1px dashed transparent;
-}
-
-.venue-link:hover {
-  color: var(--gold);
-  border-bottom-color: var(--gold);
-}
-
-.venue-address-block {
-  margin-top: 1.25rem;
-  border-top: 1px dashed rgba(212, 175, 55, 0.3);
-  padding-top: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.venue-subtitle {
-  font-family: var(--font-title);
-  color: var(--gold-light);
-  font-size: 1.15rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+/* Venue Section */
+.venue-section {
+  padding: 0.4rem 0;
 }
 
 .venue-address {
   font-family: var(--font-body);
-  color: var(--cream);
-  font-size: 0.95rem;
+  color: var(--charcoal);
+  font-size: 0.85rem;
   line-height: 1.5;
-  margin-bottom: 1.25rem;
-  max-width: 450px;
-  opacity: 0.95;
+  margin-bottom: 0.5rem;
 }
 
 .venue-address strong {
-  color: var(--gold);
-  font-size: 1.05rem;
-  letter-spacing: 0.5px;
+  color: var(--maroon-light);
+  font-size: 0.95rem;
 }
 
 .maps-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.75rem;
+  gap: 0.35rem;
+  padding: 0.5rem 1.4rem;
   background-color: var(--burnt-orange);
   color: var(--cream);
   font-family: var(--font-title);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   text-decoration: none;
   border-radius: 4px;
   border: 1px solid var(--gold);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease, transform 0.2s ease;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 1px;
   font-weight: 700;
 }
 
 .maps-btn:hover {
   background-color: var(--burnt-orange-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.45);
 }
 
-.maps-btn:active {
-  transform: translateY(0);
-}
-
-.maps-btn-icon {
-  stroke: var(--cream);
-}
-
-/* ==========================================
-   4. INTEGRATED FOOTER BLOCK
-   ========================================== */
-.footer-block {
-  text-align: center;
+/* Footer Section - Width restricted to prevent overlapping with corner lamps */
+.card-footer {
   position: relative;
-  z-index: 2;
-  margin-top: 1.5rem;
-  padding: 3rem 1.5rem 1rem;
-  border-top: 1px dashed rgba(212, 175, 55, 0.25);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  z-index: 5;
+  max-width: 290px;
+  margin: 0.25rem auto 0;
+}
+
+.telugu-blessing {
+  font-family: var(--font-telugu);
+  color: var(--gold-dark);
+  font-size: 0.88rem; /* Scaled up Telugu blessing */
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .footer-note {
   font-family: var(--font-script);
-  color: var(--gold-light);
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  line-height: 1;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
-}
-
-.footer-icons {
-  margin-bottom: 1.5rem;
-}
-
-.jasmine-link {
-  display: inline-block;
-  transition: transform 0.4s ease;
-}
-
-.jasmine-link:hover {
-  transform: rotate(35deg) scale(1.15);
-}
-
-.jasmine-icon-footer {
-  width: 38px;
-  height: 38px;
+  color: var(--gold-dark);
+  font-size: 2.3rem; /* Scaled up cursive */
+  line-height: 1.1; /* Improved line spacing to prevent overlaps */
+  margin-bottom: 0.2rem;
 }
 
 .copyright {
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--cream);
-  opacity: 0.75;
-  letter-spacing: 1.5px;
+  font-size: 0.65rem;
+  color: var(--charcoal);
+  opacity: 0.6;
 }
 
-/* ==========================================
-   ANIMATIONS & EFFECTS
-   ========================================== */
-
-/* Fade-in for card */
-@keyframes cardFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Diyas on the card corners (Enlarged from 32px to 44px) */
+.card-diya {
+  position: absolute;
+  bottom: 12px;
+  width: 44px;
+  height: 55px;
+  pointer-events: none;
+  z-index: 2;
 }
 
-/* Rings Sway */
-@keyframes swayRings {
-  0% {
-    transform: rotate(-1.5deg);
-  }
-  100% {
-    transform: rotate(1.5deg);
-  }
+.card-diya.left-diya {
+  left: 10px;
 }
 
-/* Pulse slower for SVGs */
-.animate-pulse-slow {
-  animation: pulseSlow 5s ease-in-out infinite;
+.card-diya.right-diya {
+  right: 10px;
+  transform: scaleX(-1); /* flip right lamp */
 }
 
-@keyframes pulseSlow {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.95;
-  }
-  50% {
-    transform: scale(1.03);
-    opacity: 1;
-  }
-}
-
-/* Diya Flame Flicker Animations */
-.flame-path {
-  transform-origin: bottom center;
-  animation: simpleFlicker 3s infinite ease-in-out;
-}
-
-.flame-path-inner {
-  transform-origin: bottom center;
-  animation: simpleFlicker 2s infinite ease-in-out;
-}
-
-@keyframes simpleFlicker {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(1.05) rotate(2deg); }
-}
-
-/* Custom Unsynchronized Diya Lamp Flickers (human-paced) */
-.flame-outer-1 {
+/* Diya Animations */
+.flame-outer-1, .flame-outer-2 {
   transform-origin: 40px 45px;
   animation: flickerLarge 3.8s infinite ease-in-out;
 }
 
-.flame-inner-1 {
+.flame-inner-1, .flame-inner-2 {
   transform-origin: 40px 40px;
   animation: flickerSmall 2.9s infinite ease-in-out;
 }
 
-.flame-outer-2 {
-  transform-origin: 40px 45px;
-  animation: flickerLarge 4.3s infinite ease-in-out;
-}
-
-.flame-inner-2 {
-  transform-origin: 40px 40px;
-  animation: flickerSmall 3.1s infinite ease-in-out;
-}
-
-/* Smoke Haze Flicker */
-.smoke-haze {
-  transform-origin: 40px 15px;
-  animation: hazePulse 6s infinite ease-in-out;
-}
-
-@keyframes hazePulse {
-  0%, 100% { transform: scale(1); opacity: 0.12; }
-  50% { transform: scale(1.2) translateY(-2px); opacity: 0.22; }
-}
-
 @keyframes flickerLarge {
-  0%, 100% {
-    transform: scale(1) rotate(-1deg) skewX(-0.5deg);
-    opacity: 0.9;
-  }
-  20% {
-    transform: scale(1.08) rotate(1.5deg) skewX(1deg);
-    opacity: 1;
-  }
-  40% {
-    transform: scale(0.95) rotate(-2deg) skewX(-1.5deg);
-    opacity: 0.85;
-  }
-  60% {
-    transform: scale(1.04) rotate(1deg) skewX(0.5deg);
-    opacity: 0.95;
-  }
-  80% {
-    transform: scale(0.97) rotate(-0.5deg) skewX(-0.5deg);
-    opacity: 0.9;
-  }
+  0%, 100% { transform: scale(1) rotate(-1deg); opacity: 0.9; }
+  30% { transform: scale(1.06) rotate(1deg); opacity: 1; }
+  70% { transform: scale(0.95) rotate(-1.5deg); opacity: 0.85; }
 }
 
 @keyframes flickerSmall {
-  0%, 100% {
-    transform: scale(1) rotate(1deg);
-    opacity: 0.95;
-  }
-  25% {
-    transform: scale(0.92) rotate(-1.5deg);
-    opacity: 0.85;
-  }
-  50% {
-    transform: scale(1.06) rotate(2deg);
-    opacity: 1;
-  }
-  75% {
-    transform: scale(0.95) rotate(-1deg);
-    opacity: 0.9;
-  }
+  0%, 100% { transform: scale(1) rotate(1deg); }
+  50% { transform: scale(1.05) rotate(-1deg); }
 }
 
 /* Jasmine canvas & particles */
@@ -762,276 +404,180 @@ body {
   overflow: hidden;
 }
 
-/* Individual falling/floating jasmine petal */
-.jasmine-petal {
+.dynamic-petal {
   position: absolute;
   pointer-events: none;
   opacity: 0;
   will-change: transform, opacity;
-  transform-origin: center;
+  animation: floatPetal var(--duration) linear forwards;
 }
 
-/* Static fallback jasmine petals */
-.static-petal-1 {
-  bottom: 40px;
-  right: 50px;
-  z-index: 3;
-  opacity: 0.9;
-  transform: rotate(-15deg);
-  animation: staticFloat 6s ease-in-out infinite alternate;
-}
-
-@keyframes staticFloat {
-  0% { transform: translateY(0) rotate(-15deg); }
-  100% { transform: translateY(-8px) rotate(-10deg); }
-}
-
-/* Smooth fade-in scroll animation class */
-.animate-scroll-fade {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.animate-scroll-fade.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ==========================================
-   RESPONSIVE STYLES
-   ========================================== */
-
-/* Tablets / Small Desktops */
-@media (max-width: 1024px) {
-  .details-wrapper {
-    gap: 1.5rem;
-    padding: 0;
+@keyframes floatPetal {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(var(--rot-start)) scale(var(--scale));
+  }
+  10% { opacity: var(--max-op); }
+  90% { opacity: var(--max-op); }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift-x), var(--drift-y), 0) rotate(var(--rot-end)) scale(var(--scale));
   }
 }
 
-/* Phones & Portrait Tablets */
-@media (max-width: 768px) {
-  .welcome-card {
-    max-width: 95%;
-    padding: 1.25rem 0.75rem;
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Height constraints for extra small devices (e.g. iPhone SE / height < 680px) */
+@media (max-height: 680px) {
+  .invitation-card {
+    height: 98dvh;
+    padding: 0.4rem;
   }
   
   .card-inner-border {
-    padding: 1.25rem 0.75rem;
+    padding: 0.5rem 0.4rem;
+  }
+  
+  .hero-pre-title {
+    font-size: 0.85rem;
   }
   
   .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-  
-  .couple-name-compact {
     font-size: 1.4rem;
   }
   
-  .couple-relation-compact {
-    font-size: 0.78rem;
+  .hero-subtitle {
+    font-size: 0.75rem;
   }
   
-  .rings-compact-connector {
-    width: 48px;
+  .divider-gold svg {
+    width: 90px;
+    height: 11px;
   }
   
-  .hero-date-compact {
-    font-size: 1.15rem;
-    padding: 0.25rem 1.2rem;
-    margin-top: 0.8rem;
+  .couple-section {
+    margin: 0.3rem 0;
   }
   
-  /* Details Section Spacing reductions */
-  .details-section .section-container {
-    padding: 1.75rem 1rem 0.5rem;
-  }
-
-  .details-wrapper {
-    flex-direction: column-reverse;
-    gap: 1.5rem;
+  .couple-name {
+    font-size: 1.1rem;
   }
   
-  .details-diya.left-diya,
-  .details-diya.right-diya {
-    display: none;
+  .couple-relation {
+    font-size: 0.65rem;
+    line-height: 1.25;
   }
   
-  /* Show inline diyas inside details card */
-  .details-card::before,
-  .details-card::after {
-    content: "";
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M16 48C16 48 16 60 32 60C48 60 48 48 32 48Z' fill='%238C6239'/%3E%3Cpath d='M32 48c0 0-3-10 0-16 3 6 0 16 0 16z' fill='%23C85A17'/%3E%3C/svg%3E");
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin: 0 8px;
-    vertical-align: middle;
+  .rings-connector svg {
+    width: 50px;
+    height: 25px;
   }
   
-  .details-card {
-    padding: 1.25rem 1rem;
+  .details-section {
+    padding: 0.4rem;
+    margin: 0.25rem 0;
   }
   
-  .details-title {
-    font-size: 1.45rem;
-    margin-bottom: 1rem;
-    letter-spacing: 1.5px;
-  }
-  
-  .details-info-row {
-    grid-template-columns: 1fr;
-    gap: 0.4rem;
-    margin-bottom: 1rem;
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-  
-  .details-item {
-    padding: 0.35rem 0.25rem;
-  }
-  
-  .details-item:not(:last-child) {
-    border-right: none;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-  }
-  
-  .details-item .label {
-    font-size: 0.68rem;
-    letter-spacing: 1.5px;
-    margin-bottom: 0.15rem;
+  .details-date {
+    font-size: 0.95rem;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.25rem;
   }
   
   .details-item .value {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   
-  .venue-address-block {
-    margin-top: 1rem;
-    padding-top: 1rem;
-  }
-  
-  .venue-subtitle {
-    font-size: 1rem;
-    margin-bottom: 0.3rem;
+  .details-item .label {
+    font-size: 0.6rem;
   }
   
   .venue-address {
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    font-size: 0.72rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .venue-address strong {
+    font-size: 0.8rem;
   }
   
   .maps-btn {
-    padding: 0.55rem 1.5rem;
-    font-size: 0.72rem;
-    letter-spacing: 1px;
+    padding: 0.35rem 1rem;
+    font-size: 0.62rem;
+  }
+  
+  .card-footer {
+    max-width: 250px;
   }
   
   .telugu-blessing {
-    font-size: 0.95rem;
-    margin-top: 0.8rem;
-  }
-  
-  .footer-block {
-    margin-top: 1.25rem;
-    padding: 1.25rem 1rem 0.5rem;
+    font-size: 0.75rem;
   }
   
   .footer-note {
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
+    font-size: 1.7rem;
   }
   
-  .copyright {
-    font-size: 0.75rem;
+  .card-diya {
+    width: 32px;
+    height: 40px;
+    bottom: 5px;
   }
 }
 
-/* Small Screens (Height Constraints) */
-@media (max-height: 680px) {
-  .welcome-card {
-    padding: 0.85rem 0.5rem;
+/* Print Styling for PDF Export */
+@media print {
+  html, body {
+    background-color: #FFFDF6 !important;
+    color: #2A2A2A !important;
+    font-size: 12px;
+    height: auto !important;
+    overflow: visible !important;
   }
   
+  .viewport-container {
+    height: auto !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .hero-bg-container,
+  .jasmine-container {
+    display: none !important;
+  }
+
+  .invitation-card {
+    background-color: #FFFDF6 !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 95% !important;
+    max-width: 500px !important;
+    margin: 1.5rem auto !important;
+    padding: 0 !important;
+    height: auto !important;
+  }
+
   .card-inner-border {
-    padding: 0.85rem 0.5rem;
+    border: 2px solid #D4AF37 !important;
+    padding: 2rem 1.5rem !important;
+    height: auto !important;
   }
-  
-  .hero-title {
-    font-size: 1.5rem;
+
+  .maps-btn {
+    display: none !important;
   }
-  
-  .hero-subtitle {
-    font-size: 0.8rem;
-    margin-bottom: 0.4rem;
-  }
-  
-  .couple-grid-compact {
-    margin: 0.6rem 0;
-  }
-  
-  .couple-name-compact {
-    font-size: 1.2rem;
-  }
-  
-  .couple-relation-compact {
-    font-size: 0.72rem;
-  }
-  
-  .hero-date-compact {
-    font-size: 1rem;
-    padding: 0.2rem 1rem;
-    margin-top: 0.4rem;
-  }
-  
-  .scroll-indicator {
-    bottom: 15px;
-    gap: 5px;
-  }
-  
-  .scroll-text {
-    font-size: 0.65rem;
-    padding: 2px 8px;
-  }
-  
-  .scroll-icon-circle {
-    width: 32px;
-    height: 32px;
-  }
-  
-  .scroll-icon-circle svg {
-    width: 14px;
-    height: 14px;
-  }
-  
-  .details-section .section-container {
-    padding: 1rem 0.75rem 0.25rem;
-  }
-  
-  .details-title {
-    font-size: 1.3rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .details-card {
-    padding: 1rem;
-  }
-  
-  .footer-block {
-    margin-top: 0.75rem;
-    padding: 0.75rem 1rem 0.25rem;
-  }
-  
-  .footer-note {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 }

@@ -1,9 +1,8 @@
-<!-- Reverted to Version 1 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Suchitha & Pavan Kalyan - Engagement Invitation</title>
   <meta name="description" content="You are cordially invited to the engagement ceremony of Suchitha and Pavan Kalyan on 25th June 2026. Join us in celebrating this sacred union.">
   
@@ -16,20 +15,23 @@
 </head>
 <body>
 
-  <!-- Paper Grain Texture Overlay (applied globally for tactile feel) -->
+  <!-- Paper Grain Texture Overlay -->
   <div class="paper-overlay"></div>
 
   <!-- Floating Jasmine Canvas -->
   <div id="jasmine-container" class="jasmine-container"></div>
 
-  <!-- Screen 1: Welcome & Couple (Hero Background + Floating Welcome Card) -->
-  <section class="welcome-section" id="welcome">
+  <!-- Main Viewport Container (Locked to 100dvh, no scroll) -->
+  <main class="viewport-container">
+    
+    <!-- Blurred Background Image -->
     <div class="hero-bg-container">
-      <img src="assets/ring_ceremony_bg.png" alt="Ring Ceremony Background" class="hero-bg-img">
+      <img src="assets/ring_ceremony_bg.png" alt="Background" class="hero-bg-img">
       <div class="hero-bg-dim"></div>
     </div>
     
-    <div class="welcome-card animate-scroll-fade">
+    <!-- Unified Invitation Card -->
+    <div class="invitation-card">
       <div class="card-inner-border">
         <!-- Traditional Gold Corner Decors -->
         <div class="corner-decor top-left"></div>
@@ -37,200 +39,125 @@
         <div class="corner-decor bottom-left"></div>
         <div class="corner-decor bottom-right"></div>
         
-        <div class="welcome-card-content">
+        <!-- Top Header Block -->
+        <div class="card-header">
           <p class="hero-pre-title">నమో నమః • Welcome</p>
           <h1 class="hero-title">Talasu’s Ring Ceremony</h1>
+          <p class="hero-subtitle">The First Blessing of Our Daughter’s Journey</p>
+        </div>
+        
+        <!-- Vine Divider (Larger) -->
+        <div class="divider-gold">
+          <svg width="120" height="15" viewBox="0 0 120 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 7.5 H45 L50 2 L60 13 L70 2 L75 7.5 H115" stroke="#D4AF37" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="60" cy="7.5" r="5" fill="#C85A17"/>
+          </svg>
+        </div>
+        
+        <!-- Couple Grid Section -->
+        <div class="couple-section">
+          <!-- Bride Column -->
+          <div class="couple-col bride">
+            <h2 class="couple-name">Suchitha</h2>
+            <p class="couple-relation">D/o Sri. Talasu Hari Prasad<br>& Smt. Sudha Rani</p>
+          </div>
           
-          <div class="divider-gold">
-            <svg width="100" height="12" viewBox="0 0 120 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 7.5 H45 L50 2 L60 13 L70 2 L75 7.5 H115" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="60" cy="7.5" r="4" fill="#C85A17"/>
+          <!-- Intertwined Rings Connector (Larger) -->
+          <div class="rings-connector">
+            <svg viewBox="0 0 100 50" width="80" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 0 25 C 20 30, 40 28, 45 25 M 55 25 C 60 28, 80 30, 100 25" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round"/>
+              <g transform="translate(50, 25) scale(1.05)">
+                <ellipse cx="-7" cy="1" rx="10" ry="8" stroke="#D4AF37" stroke-width="2.2" fill="none" transform="rotate(-15 -7 1)"/>
+                <ellipse cx="7" cy="1" rx="10" ry="8" stroke="#D4AF37" stroke-width="2.2" fill="none" transform="rotate(15 7 1)"/>
+                <path d="M -1 3 A 10 8 0 0 0 2 -3" stroke="#D4AF37" stroke-width="2.2" fill="none" transform="rotate(-15 -7 1)" stroke-linecap="round"/>
+                <g transform="translate(13, -5) rotate(15)">
+                  <polygon points="-2,1 2,1 1.5,3 -1.5,3" fill="#AA8417"/>
+                  <polygon points="0,-3 -3,0 -2,1 2,1 3,0" fill="#FFF" stroke="#D4AF37" stroke-width="0.5"/>
+                </g>
+              </g>
             </svg>
           </div>
           
-          <p class="hero-subtitle">The First Blessing of Our Daughter’s Journey</p>
+          <!-- Groom Column -->
+          <div class="couple-col groom">
+            <h2 class="couple-name">Pavan Kalyan</h2>
+            <p class="couple-relation">S/o Sri. Lade Mohana Rao<br>& Smt. Radha</p>
+          </div>
+        </div>
+        
+        <!-- Ceremony Times Grid -->
+        <div class="details-section">
+          <!-- Date Badge -->
+          <div class="details-date">Thursday, 25th June 2026</div>
           
-          <!-- Compact Couple Grid (Side-by-side on mobile for vertical space saving) -->
-          <div class="couple-grid-compact">
-            <!-- Bride Column -->
-            <div class="couple-col-compact bride">
-              <h2 class="couple-name-compact">Suchitha</h2>
-              <p class="couple-relation-compact">D/o Sri. Talasu Hari Prasad & Smt. Sudha Rani</p>
+          <div class="details-grid">
+            <div class="details-item">
+              <span class="label">MUHURTHAM</span>
+              <span class="value">10:44 AM</span>
             </div>
-            
-            <!-- Intertwined Rings Connector -->
-            <div class="rings-compact-connector">
-              <svg viewBox="0 0 100 50" width="100" height="50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Vine linking rings -->
-                <path d="M 0 25 C 20 30, 40 28, 45 25 M 55 25 C 60 28, 80 30, 100 25" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round"/>
-                
-                <!-- Intertwined Rings -->
-                <g transform="translate(50, 25)">
-                  <!-- Left Ring (Gold Band) -->
-                  <ellipse cx="-7" cy="1" rx="10" ry="8" stroke="#D4AF37" stroke-width="2.2" fill="none" transform="rotate(-15 -7 1)"/>
-                  <!-- Right Ring (Diamond Ring) -->
-                  <ellipse cx="7" cy="1" rx="10" ry="8" stroke="#D4AF37" stroke-width="2.2" fill="none" transform="rotate(15 7 1)"/>
-                  <!-- Intersecting Overlap -->
-                  <path d="M -1 3 A 10 8 0 0 0 2 -3" stroke="#D4AF37" stroke-width="2.2" fill="none" transform="rotate(-15 -7 1)" stroke-linecap="round"/>
-                  <!-- Diamond Setting -->
-                  <g transform="translate(13, -5) rotate(15)">
-                    <polygon points="-2,1 2,1 1.5,3 -1.5,3" fill="#AA8417"/>
-                    <polygon points="0,-3 -3,0 -2,1 2,1 3,0" fill="#FFF" stroke="#D4AF37" stroke-width="0.5"/>
-                  </g>
-                </g>
-              </svg>
-            </div>
-            
-            <!-- Groom Column -->
-            <div class="couple-col-compact groom">
-              <h2 class="couple-name-compact">Pavan Kalyan</h2>
-              <p class="couple-relation-compact">S/o Sri. Lade Mohana Rao & Smt. Radha</p>
+            <div class="details-item">
+              <span class="label">LUNCH</span>
+              <span class="value">12:00 Noon</span>
             </div>
           </div>
-          
-          <div class="hero-date-compact">25th June 2026</div>
         </div>
-      </div>
-    </div>
-    
-    <!-- Floating Jasmine (Initial Static Flower) -->
-    <div class="jasmine-petal static-petal-1">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C12 2 9 7 9 10C9 13 11 15 12 15C13 15 15 13 15 10C15 7 12 2 12 2Z" fill="#FBFBF7" stroke="#E6E6D8" stroke-width="0.5"/>
-        <path d="M12 2C12 2 15 7 15 10C15 13 13 15 12 15C11 15 9 13 9 10C9 7 12 2 12 2Z" fill="#FFFDF6" stroke="#E6E6D8" stroke-width="0.5"/>
-        <circle cx="12" cy="12" r="1.5" fill="#D4AF37"/>
-      </svg>
-    </div>
-    
-    <!-- Scroll Down Indicator -->
-    <a href="#details" class="scroll-indicator" aria-label="Scroll for Details">
-      <span class="scroll-text">Scroll for Details</span>
-      <div class="scroll-icon-circle">
-        <svg class="scroll-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-      </div>
-    </a>
-  </section>
+        
+        <!-- Venue & Maps Section -->
+        <div class="venue-section">
+          <p class="venue-address">
+            <strong>KVR Conventions</strong><br>
+            NH-16 Bypass Road, Palasa-Kasibugga,<br>
+            Srikakulam District, AP - 532221
+          </p>
+          
+          <a href="https://maps.app.goo.gl/Uu6rkdmEH7M58FDu6?g_st=aw" target="_blank" rel="noopener noreferrer" class="maps-btn">
+            <span>View on Google Maps</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+        </div>
+        
+        <!-- Footer Block -->
+        <div class="card-footer">
+          <!-- Telugu Blessing -->
+          <div class="telugu-blessing">శ్రీరస్తు శుభమస్తు • దైవానుగ్రహ ప్రాప్తిరస్తు</div>
+          
+          <!-- Tagline -->
+          <p class="footer-note">With love from the Talasu & Lade families</p>
+          
+          <!-- Small copyright -->
+          <p class="copyright">© 2026 Talasu Family</p>
+        </div>
 
-  <!-- Screen 2: Details & Blessings (Maroon Card + Integrated Footer) -->
-  <section class="details-section" id="details">
-    <!-- Traditional Temple Border Pattern Top -->
-    <div class="temple-border-top">
-      <svg width="100%" height="20" viewBox="0 0 100 24" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <pattern id="templePattern" width="20" height="24" patternUnits="userSpaceOnUse">
-          <path d="M0 24 L10 4 L20 24 Z" fill="#D4AF37"/>
-          <path d="M3 24 L10 10 L17 24 Z" fill="#58111A"/>
-          <path d="M6 24 L10 16 L14 24 Z" fill="#D4AF37"/>
-          <circle cx="10" cy="2" r="1.5" fill="#D4AF37"/>
-        </pattern>
-        <rect width="100%" height="24" fill="url(#templePattern)"/>
-      </svg>
-    </div>
-
-    <div class="section-container">
-      <div class="details-wrapper">
         <!-- Left Flickering Diya -->
-        <div class="details-diya left-diya">
-          <svg viewBox="0 0 80 100" width="60" height="80" class="interactive-diya">
+        <div class="card-diya left-diya">
+          <svg viewBox="0 0 80 100" class="interactive-diya">
             <ellipse class="smoke-haze" cx="40" cy="15" rx="15" ry="8" fill="#F2C94C" opacity="0.15"/>
             <path d="M15 65C15 65 15 85 40 85C65 85 65 65 40 65C15 65 15 65 15 65Z" fill="#8C6239" stroke="#5C3F22" stroke-width="2"/>
             <path d="M10 60C10 60 15 80 40 80C65 80 70 60 40 55C10 60 10 60 10 60Z" fill="#D4AF37" stroke="#8C6239" stroke-width="1.5"/>
             <line x1="40" y1="58" x2="40" y2="40" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/>
             <path class="flickering-flame flame-outer-1" d="M40 42C40 42 25 30 40 5C55 30 40 42 40 42Z" fill="#C85A17" opacity="0.95"/>
             <path class="flickering-flame flame-inner-1" d="M40 38C40 38 30 28 40 15C50 28 40 38 40 38Z" fill="#F2C94C"/>
-            <path d="M30 84L25 95H55L50 84H30Z" fill="#5C3F22"/>
           </svg>
         </div>
 
-        <!-- Details Info Card -->
-        <div class="details-card animate-scroll-fade">
-          <h2 class="details-title">Engagement Ceremony</h2>
-          
-          <div class="details-info-row">
-            <div class="details-item">
-              <span class="label">DATE</span>
-              <span class="value">Thursday, 25th June 2026</span>
-            </div>
-            
-            <div class="details-item">
-              <span class="label">MUHURTHAM</span>
-              <span class="value">10:44 AM</span>
-            </div>
-            
-            <div class="details-item">
-              <span class="label">LUNCH</span>
-              <span class="value">12:00 Noon Onwards</span>
-            </div>
-          </div>
-          
-          <!-- Venue Address Section (NO QR) -->
-          <div class="venue-address-block">
-            <h3 class="venue-subtitle">Venue Address</h3>
-            <p class="venue-address">
-              <strong>KVR Conventions</strong><br>
-              NH-16 Bypass Road, Palasa-Kasibugga,<br>
-              Srikakulam District, Andhra Pradesh - 532221
-            </p>
-            
-            <!-- Clickable Maps Button -->
-            <a href="https://maps.app.goo.gl/Uu6rkdmEH7M58FDu6?g_st=aw" target="_blank" rel="noopener noreferrer" class="maps-btn">
-              <span>View Location on Maps</span>
-              <svg class="maps-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-          
-          <div class="telugu-blessing">
-            శ్రీరస్తు శుభమస్తు • దైవానుగ్రహ ప్రాప్తిరస్తు
-          </div>
-        </div>
-
         <!-- Right Flickering Diya -->
-        <div class="details-diya right-diya">
-          <svg viewBox="0 0 80 100" width="60" height="80" class="interactive-diya">
+        <div class="card-diya right-diya">
+          <svg viewBox="0 0 80 100" class="interactive-diya">
             <ellipse class="smoke-haze" cx="40" cy="15" rx="15" ry="8" fill="#F2C94C" opacity="0.15"/>
             <path d="M15 65C15 65 15 85 40 85C65 85 65 65 40 65C15 65 15 65 15 65Z" fill="#8C6239" stroke="#5C3F22" stroke-width="2"/>
             <path d="M10 60C10 60 15 80 40 80C65 80 70 60 40 55C10 60 10 60 10 60Z" fill="#D4AF37" stroke="#8C6239" stroke-width="1.5"/>
             <line x1="40" y1="58" x2="40" y2="40" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round"/>
             <path class="flickering-flame flame-outer-2" d="M40 42C40 42 23 32 40 5C57 32 40 42 40 42Z" fill="#C85A17" opacity="0.95"/>
             <path class="flickering-flame flame-inner-2" d="M40 38C40 38 29 29 40 15C51 29 40 38 40 38Z" fill="#F2C94C"/>
-            <path d="M30 84L25 95H55L50 84H30Z" fill="#5C3F22"/>
           </svg>
         </div>
       </div>
-
-      <!-- Integrated Footer Block -->
-      <div class="footer-block">
-        <p class="footer-note">With love from the Talasu & Lade families</p>
-        
-        <!-- Jasmine Flower Link/Icon -->
-        <div class="footer-icons">
-          <a href="#welcome" class="jasmine-link" aria-label="Go to Top">
-            <svg class="jasmine-icon-footer" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C12 2 9 7 9 10C9 13 11 15 12 15C13 15 15 13 15 10C15 7 12 2 12 2Z" fill="#D4AF37"/>
-              <path d="M12 22C12 22 9 17 9 14C9 11 11 9 12 9C13 9 15 11 15 14C15 17 12 22 12 22Z" fill="#D4AF37"/>
-              <path d="M2 12C2 12 7 9 10 9C13 9 15 11 15 12C15 13 13 15 10 15C7 15 2 12 2 12Z" fill="#D4AF37"/>
-              <path d="M22 12C22 12 17 9 14 9C11 9 9 11 9 12C9 13 11 15 14 15C17 15 22 12 22 12Z" fill="#D4AF37"/>
-              <circle cx="12" cy="12" r="2" fill="#FFF"/>
-            </svg>
-          </a>
-        </div>
-        
-        <p class="copyright">© 2026 Talasu Family — A celebration of two hearts, crafted with love</p>
-      </div>
     </div>
-
-    <!-- Traditional Temple Border Pattern Bottom -->
-    <div class="temple-border-bottom">
-      <svg width="100%" height="20" viewBox="0 0 100 24" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100%" height="24" fill="url(#templePattern)"/>
-      </svg>
-    </div>
-  </section>
+  </main>
 
   <script src="script.js"></script>
 </body>
