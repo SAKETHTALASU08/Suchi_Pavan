@@ -110,7 +110,7 @@ html, body {
 
 .card-inner-border {
   border: 2px solid var(--gold-dark);
-  padding: 1.25rem 1rem; /* Increased padding for breathing room */
+  padding: 1.25rem 1rem; /* Spacing for breathing room */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -165,7 +165,7 @@ html, body {
 .hero-pre-title {
   font-family: var(--font-telugu);
   color: var(--burnt-orange);
-  font-size: 1rem;
+  font-size: clamp(0.85rem, 2.5vw, 1rem); /* Fluid scaling */
   letter-spacing: 1.5px;
   margin-bottom: 0.15rem;
 }
@@ -173,7 +173,7 @@ html, body {
 .hero-title {
   font-family: var(--font-title);
   color: var(--gold-dark);
-  font-size: 1.95rem; /* Scaled up */
+  font-size: clamp(1.5rem, 6.5vw, 1.95rem); /* Fluid scaling */
   line-height: 1.25;
   margin: 0.2rem 0;
   font-weight: 700;
@@ -183,7 +183,7 @@ html, body {
 .hero-subtitle {
   font-family: var(--font-serif);
   color: var(--burnt-orange);
-  font-size: 0.88rem; /* Scaled up */
+  font-size: clamp(0.75rem, 2.5vw, 0.88rem); /* Fluid scaling */
   font-style: italic;
   line-height: 1.35;
 }
@@ -192,6 +192,12 @@ html, body {
   margin: 0.4rem 0;
   display: flex;
   justify-content: center;
+}
+
+.divider-gold svg {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
 }
 
 /* Couple grid section */
@@ -210,15 +216,16 @@ html, body {
 .couple-name {
   font-family: var(--font-title);
   color: var(--maroon-light);
-  font-size: 1.4rem; /* Scaled up Bride/Groom names */
+  font-size: clamp(1.15rem, 5vw, 1.4rem); /* Fluid scaling to prevent name wrapping */
   font-weight: 700;
   margin-bottom: 0.2rem;
+  white-space: nowrap; /* Prevent names breaking into two lines */
 }
 
 .couple-relation {
   font-family: var(--font-serif);
   color: var(--burnt-orange-dark);
-  font-size: 0.78rem; /* Scaled up parent relations */
+  font-size: clamp(0.68rem, 2.5vw, 0.78rem); /* Fluid scaling */
   line-height: 1.4;
 }
 
@@ -227,6 +234,12 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.rings-connector svg {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
 }
 
 /* Ceremony info */
@@ -240,7 +253,7 @@ html, body {
 
 .details-date {
   font-family: var(--font-title);
-  font-size: 1.15rem; /* Scaled up Date */
+  font-size: clamp(1rem, 4vw, 1.15rem); /* Fluid scaling */
   color: var(--maroon);
   letter-spacing: 1px;
   border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
@@ -265,7 +278,7 @@ html, body {
 }
 
 .details-item .label {
-  font-size: 0.72rem;
+  font-size: clamp(0.6rem, 2vw, 0.72rem); /* Fluid scaling */
   color: var(--burnt-orange-dark);
   letter-spacing: 1px;
   margin-bottom: 0.15rem;
@@ -273,7 +286,7 @@ html, body {
 
 .details-item .value {
   font-family: var(--font-serif);
-  font-size: 1.15rem; /* Scaled up Muhurtham/Lunch values */
+  font-size: clamp(0.95rem, 4vw, 1.15rem); /* Fluid scaling */
   color: var(--maroon);
   font-weight: 700;
 }
@@ -286,14 +299,14 @@ html, body {
 .venue-address {
   font-family: var(--font-body);
   color: var(--charcoal);
-  font-size: 0.85rem;
+  font-size: clamp(0.75rem, 2.5vw, 0.85rem); /* Fluid scaling */
   line-height: 1.5;
   margin-bottom: 0.5rem;
 }
 
 .venue-address strong {
   color: var(--maroon-light);
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2.8vw, 0.95rem); /* Fluid scaling */
 }
 
 .maps-btn {
@@ -330,7 +343,7 @@ html, body {
 .telugu-blessing {
   font-family: var(--font-telugu);
   color: var(--gold-dark);
-  font-size: 0.88rem; /* Scaled up Telugu blessing */
+  font-size: clamp(0.72rem, 2.8vw, 0.88rem); /* Fluid scaling */
   margin-bottom: 0.3rem;
   font-weight: 600;
   white-space: nowrap;
@@ -339,7 +352,7 @@ html, body {
 .footer-note {
   font-family: var(--font-script);
   color: var(--gold-dark);
-  font-size: 2.3rem; /* Scaled up cursive */
+  font-size: clamp(1.7rem, 8vw, 2.3rem); /* Fluid scaling */
   line-height: 1.1; /* Improved line spacing to prevent overlaps */
   margin-bottom: 0.2rem;
 }
@@ -351,7 +364,7 @@ html, body {
   opacity: 0.6;
 }
 
-/* Diyas on the card corners (Enlarged from 32px to 44px) */
+/* Diyas on the card corners (Enlarged) */
 .card-diya {
   position: absolute;
   bottom: 12px;
@@ -436,7 +449,48 @@ html, body {
   }
 }
 
-/* Height constraints for extra small devices (e.g. iPhone SE / height < 680px) */
+/* Narrow mobile viewport layout overrides (e.g. Screen Width <= 360px like iPhone SE) */
+@media (max-width: 360px) {
+  .viewport-container {
+    padding: 0.5rem; /* Give card more horizontal room */
+  }
+
+  .invitation-card {
+    padding: 0.5rem;
+  }
+
+  .card-inner-border {
+    padding: 1rem 0.5rem; /* Tighter margins to fit layout elements */
+  }
+
+  .couple-section {
+    gap: 0.3rem;
+  }
+
+  .rings-connector {
+    width: 52px; /* Scale down rings SVG container */
+  }
+
+  .card-diya {
+    width: 32px;
+    height: 40px;
+    bottom: 6px;
+  }
+
+  .card-diya.left-diya {
+    left: 6px;
+  }
+
+  .card-diya.right-diya {
+    right: 6px;
+  }
+
+  .card-footer {
+    max-width: 230px; /* Restrict footer further to prevent overlays */
+  }
+}
+
+/* Height constraints for extra small devices (e.g. height < 680px) */
 @media (max-height: 680px) {
   .invitation-card {
     height: 98dvh;
