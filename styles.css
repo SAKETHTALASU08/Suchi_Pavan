@@ -264,30 +264,60 @@ body {
 /* Scroll Down Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 4vh;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.35rem;
-  opacity: 0.85;
-  pointer-events: none;
+  gap: 8px;
+  text-decoration: none;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, transform 0.3s ease;
   animation: fadeInIndicator 2s ease-out;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
 }
 
 .scroll-text {
   font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: var(--gold-light);
-  letter-spacing: 2px;
+  font-size: 0.7rem;
+  color: var(--maroon);
+  font-weight: 700;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  background-color: rgba(253, 251, 240, 0.92);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--gold);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.scroll-icon-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--maroon);
+  border: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  animation: scrollBounce 2s infinite ease-in-out;
+}
+
+.scroll-indicator:hover .scroll-icon-circle {
+  background-color: var(--maroon-light);
+  transform: scale(1.05);
 }
 
 .scroll-arrow {
-  animation: scrollBounce 2s infinite ease-in-out;
+  display: block;
 }
 
 @keyframes scrollBounce {
@@ -304,7 +334,7 @@ body {
     opacity: 0;
   }
   to {
-    opacity: 0.85;
+    opacity: 0.9;
   }
 }
 
@@ -792,30 +822,30 @@ body {
   }
   
   .hero-title {
-    font-size: 1.7rem;
+    font-size: 2rem;
   }
   
   .hero-subtitle {
-    font-size: 0.82rem;
-    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
   }
   
   .couple-name-compact {
-    font-size: 1.15rem;
+    font-size: 1.4rem;
   }
   
   .couple-relation-compact {
-    font-size: 0.68rem;
+    font-size: 0.78rem;
   }
   
   .rings-compact-connector {
-    width: 60px;
+    width: 48px;
   }
   
   .hero-date-compact {
-    font-size: 1rem;
-    padding: 0.2rem 1rem;
-    margin-top: 0.4rem;
+    font-size: 1.15rem;
+    padding: 0.25rem 1.2rem;
+    margin-top: 0.8rem;
   }
   
   /* Details Section Spacing reductions */
@@ -928,11 +958,11 @@ body {
 /* Small Screens (Height Constraints) */
 @media (max-height: 680px) {
   .welcome-card {
-    padding: 1rem 0.5rem;
+    padding: 0.85rem 0.5rem;
   }
   
   .card-inner-border {
-    padding: 1rem 0.5rem;
+    padding: 0.85rem 0.5rem;
   }
   
   .hero-title {
@@ -940,11 +970,46 @@ body {
   }
   
   .hero-subtitle {
-    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
   }
   
   .couple-grid-compact {
-    margin: 0.75rem 0;
+    margin: 0.6rem 0;
+  }
+  
+  .couple-name-compact {
+    font-size: 1.2rem;
+  }
+  
+  .couple-relation-compact {
+    font-size: 0.72rem;
+  }
+  
+  .hero-date-compact {
+    font-size: 1rem;
+    padding: 0.2rem 1rem;
+    margin-top: 0.4rem;
+  }
+  
+  .scroll-indicator {
+    bottom: 15px;
+    gap: 5px;
+  }
+  
+  .scroll-text {
+    font-size: 0.65rem;
+    padding: 2px 8px;
+  }
+  
+  .scroll-icon-circle {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .scroll-icon-circle svg {
+    width: 14px;
+    height: 14px;
   }
   
   .details-section .section-container {
